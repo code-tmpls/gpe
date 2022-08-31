@@ -11,6 +11,6 @@
   "license": "ISC",
   "repository":"https://github.com/code-tmpls/gpe.git",
   "publishConfig": {
-	"registry": "https://npm.pkg.github.com/code-tmpls"
-  }
+	"registry":"https://npm.pkg.github.com"
+  },
 }

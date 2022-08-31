@@ -32,8 +32,9 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@code-tmpls'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_ENV: test np
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -12,5 +12,5 @@
   "repository":"https://github.com/code-tmpls/gpe.git",
   "publishConfig": {
 	"registry":"https://npm.pkg.github.com"
-  },
+  }
 }

@@ -9,7 +9,10 @@
   },
   "author": "",
   "license": "ISC",
-  "repository":"https://github.com/code-tmpls/gpe.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-tmpls/gpe.git"
+  },
   "publishConfig": {
 	"registry":"https://npm.pkg.github.com"
   }

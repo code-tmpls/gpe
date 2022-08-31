@@ -3,12 +3,9 @@
 
 name: Node.js Package
 
-#on:
-#  release:
-#    types: [created]
 on:
   push
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,9 +14,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: cd testpack
       - run: npm ci
 
-  publish-npm:
+  publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -27,14 +25,13 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@code-tmpls'
-      - run: rm -rf node_modules/gpe
+          registry-url: https://npm.pkg.github.com/
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: cd testpack
       - run: npm ci
       - run: npm publish
         env:
